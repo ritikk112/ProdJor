@@ -1,0 +1,24 @@
+.home-container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    background: whitesmoke;
+    color: #2a2826;
+}
+
+.full-screen-image-container {
+    position: fixed;
+    /* top: 0; */
+    /* left: 0; */
+    width: 100vw; /* Full width of viewport */
+    height: 100vh; /* Full height of viewport */
+    overflow: hidden; /* Hide any overflow from the image */
+  }
+  
+  .full-screen-image {
+    width: 100%; /* Take up entire width of container */
+    height: 100%; /* Take up entire height of container */
+    object-fit: cover; /* Scale the image as large as possible while maintaining its aspect ratio */
+  }
+  
