@@ -7,7 +7,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Header from "./components/header";
+import Header from "./components/stock";
 import Login from "./components/login";
 import SignUp from "./components/register";
 import { ToastContainer } from "react-toastify";

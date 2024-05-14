@@ -3,8 +3,9 @@
     width: 100%;
     position: absolute;
     z-index: 1;
-    background: whitesmoke;
+    background: "white";
     color: #2a2826;
+    overflow-y: auto;
 }
 
 .full-screen-image-container {
@@ -14,11 +15,29 @@
     width: 100vw; /* Full width of viewport */
     height: 100vh; /* Full height of viewport */
     overflow: hidden; /* Hide any overflow from the image */
-  }
+}
   
-  .full-screen-image {
+.full-screen-image {
     width: 100%; /* Take up entire width of container */
     height: 100%; /* Take up entire height of container */
     object-fit: cover; /* Scale the image as large as possible while maintaining its aspect ratio */
-  }
+}
+
+.text-button {
+    border: none;
+    background: none;
+    padding: 40;
+    font-size: 18px;
+    /* font-weight: bold; */
+    color: #000; /* Text color */
+    border-radius: 10%;
+    transition: background-color 0.5s ease;
+}
+  
+.text-button:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Translucent background color */
+}
+
+
+  
   
