@@ -77,10 +77,10 @@ const Stock = () => {
 			/>
 		))}
 		</Carousel>
-		<>
+		<div>
 			<img src = {selectedImg} style={{margin: "1%"}}/>
 			<Button color="secondary" onClick={() => {console.log(curSubs)}}>Subscribe!</Button>
-		</>
+		</div>
 	</div>
   );
 };
