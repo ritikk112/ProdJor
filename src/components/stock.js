@@ -46,9 +46,32 @@ const exampleItems = [
   },
 ];
 
-const Stock = () => {
+const Stock = ({ userDetails }) => {
 	const [selectedImg, setSelectedImg] = React.useState(Prototype1);
 	const [curSubs, setCurSubs] = React.useState("REL");
+	const [isLoading, setIsLoading] = React.useState(false);
+	const handleSubscribe = async () => {
+		setIsLoading(true);
+		try {
+			const response = await fetch(`users/${curSubs}`, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({ email: userDetails.email }),
+			});
+
+			if (response.ok) {
+			console.log('Subscription successful');
+			} else {
+			console.error('Subscription failed');
+			}
+		} catch (error) {
+			console.error('Error:', error);
+		} finally {
+			setIsLoading(false);
+		}
+	};
   return (
 	<div>
 		<Carousel
@@ -79,7 +102,14 @@ const Stock = () => {
 		</Carousel>
 		<div>
 			<img src = {selectedImg} style={{margin: "1%"}}/>
-			<Button color="secondary" onClick={() => {console.log(curSubs)}}>Subscribe!</Button>
+			<Button
+			color="secondary"
+			onClick={handleSubscribe}
+			disabled={isLoading}
+			>
+				{isLoading ? 'Subscribing...' : 'Subscribe!'}
+			</Button>
+			{/* <Button color="secondary" onClick={() => {console.log(curSubs)}}>Subscribe!</Button> */}
 		</div>
 	</div>
   );

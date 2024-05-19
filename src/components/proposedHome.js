@@ -116,7 +116,7 @@ const Home = ({ userDetails }) =>{
                     {/* <Button variant="text">Stocks</Button> */}
                 </div>
                 <div>
-                    {selectedContent === "stock" && <Stock />}
+                    {selectedContent === "stock" && <Stock userDetails={userDetails} />}
                     {selectedContent === "forex" && <div>Forex</div>}
                     {selectedContent === "future" && <div>Future</div>}
                     {selectedContent === "options" && <div>Options</div>}
