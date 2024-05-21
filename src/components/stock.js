@@ -65,7 +65,7 @@ const cardData = [
   
   const NewsCard = ({ title, description, index }) => {
 	return (
-	  <Card style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+	  <Card style={{display: 'flex', alignItems: 'center', gap: '1rem', margin: "2%"}}>
 		<CardContent>
 		  <Typography variant="h6" component="h2">
 			{title}

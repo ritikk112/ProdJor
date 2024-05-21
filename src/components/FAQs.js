@@ -59,7 +59,7 @@ const ExpandableCardList = () => {
 
   return (
     <>
-        <h1>Frequenty Asked Questions</h1>
+        <h1 style={{margin: "5%"}}>Frequenty Asked Questions</h1>
       {cardData.map((card, index) => (
         <ExpandableCard
           key={index}

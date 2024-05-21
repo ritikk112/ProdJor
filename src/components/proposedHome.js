@@ -11,6 +11,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stock from "./stock";
 import ExpandableCardList from "./FAQs";
+import Footer from "./Footer";
 
 async function handleLogout() {
     try {
@@ -52,9 +53,6 @@ const Home = ({ userDetails }) =>{
         <div style={{flex: 1, backgroundColor: 'white', padding: 15, flexWrap: "wrap"}}>
             <AppBar position="static" style={{backgroundColor: "white", color: "black", boxShadow: 'revert'}}>
                 <Toolbar style={{ display: 'flex', justifyContent: 'space-around'}}>
-                    {/* <Typography variant="h5">
-                    FutureEdge.
-                    </Typography> */}
                     <img src={FutureEdge} style={{height: '8%', width: '10%'}} />
                     <div style={{ display: 'flex', justifyContent: 'space-around', gap: 10}}>
                         <Button
@@ -122,8 +120,8 @@ const Home = ({ userDetails }) =>{
                     {selectedContent === "future" && <div>Future</div>}
                     {selectedContent === "options" && <div>Options</div>}
                 </div>
-                <ExpandableCardList />
-                <div style={{ display: "flex", justifyContent: "center" }}>
+                <ExpandableCardList /> {/* FAQs */}
+                {/* <div style={{ display: "flex", justifyContent: "center" }}>
                     <img
                     src={userDetails.photo}
                     width={"40%"}
@@ -136,13 +134,14 @@ const Home = ({ userDetails }) =>{
                     <p>Email: {userDetails.email}</p>
                     <p>First Name: {userDetails.firstName}</p>
                     <p>Last Name: {userDetails.lastName}</p>
-                </div>
+                </div> */}
                 {/* <button className="btn btn-primary" onClick={toEducatoryForum}>
                     Educatory
                 </button> */}
-                <button className="btn btn-primary" onClick={handleLogout}>
+                {/* <button className="btn btn-primary" onClick={handleLogout}>
                     Logout
-                </button>
+                </button> */}
+                <Footer />
             </>
         </div>
     )
