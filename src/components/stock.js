@@ -11,9 +11,10 @@ import HDFC from '../assets/Thumbnails/Stock_HDFC.svg';
 import SBI from '../assets/Thumbnails/Stock_SBI.svg';
 import Airtel from '../assets/Thumbnails/Stock_Airtel.svg';
 import ICICI from '../assets/Thumbnails/Stock_ICICI.svg';
+import FullscreenImageViewer from './FullScreenImageViewer';
+import ExpandableCardList from "./FAQs";
 
-
-
+const stockImages = [`${"https://th.bing.com/th?id=OVFT.D5oo7SLxWHSb1gckqoLioy&pid=News&w=234&h=132&c=14&rs=2&qlt=90"}`, `${"https://th.bing.com/th?id=OVFT.dt9jqpeopPr5ANh4eI6HRC&pid=News&w=234&h=132&c=14&rs=2&qlt=90"}`, `${"https://th.bing.com/th?id=OVFT.VilJh_vnomiPh0EFsBrLDi&pid=News&w=234&h=132&c=14&rs=2&qlt=90"}`];
 
 const exampleItems = [
   {
@@ -46,10 +47,52 @@ const exampleItems = [
   },
 ];
 
+
+const cardData = [
+	{
+	  title: 'Indian stock market hits $5 trn for the first time ever; volatility expected ahead of election results',
+	  description: 'The m-Cap of all BSE-listed companies touched $5 trillion for the first time in intraday trade, rising from $4 trillion in ...',
+	},
+	{
+	  title: 'Rs. 8.50/Share Dividend: Payable Between 29th August To 21st September; Buy/Sell The BSE 200 Stock?',
+	  description: 'One well-known and internationally renowned automobile component maker is Endurance Technologies. For the fiscal year ...',
+	},
+	{
+	  title: 'Jio Financial Services Share Price Live Updates: Jio Financial Services Sees Price Dip to Rs 358.45, EMA3 at 369.84 Amidst Market Volatility',
+	  description: 'Stay up-to-date with the Jio Financial Services Stock Liveblog, your comprehensive source for real-time updates and detailed',
+	},
+  ];
+  
+  const NewsCard = ({ title, description, index }) => {
+	return (
+	  <Card style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
+		<CardContent>
+		  <Typography variant="h6" component="h2">
+			{title}
+		  </Typography>
+		  <Typography variant="body2" component="p">
+			{description}
+		  </Typography>
+		</CardContent>
+		<CardMedia
+			component="img"
+			src={stockImages[index]}
+			alt={title}
+			style={{ width: '40%', height: '70%', margin: '30px' }}
+		/>
+	  </Card>
+	);
+  };
+
+
 const Stock = ({ userDetails }) => {
 	const [selectedImg, setSelectedImg] = React.useState(Prototype1);
 	const [curSubs, setCurSubs] = React.useState("REL");
 	const [isLoading, setIsLoading] = React.useState(false);
+  	const [isFullscreen, setIsFullscreen] = React.useState(false);
+	  const toggleFullscreen = () => {
+		setIsFullscreen(!isFullscreen);
+	  };
 	const handleSubscribe = async () => {
 		setIsLoading(true);
 		try {
@@ -101,14 +144,43 @@ const Stock = ({ userDetails }) => {
 		))}
 		</Carousel>
 		<div>
-			<img src = {selectedImg} style={{margin: "1%"}}/>
-			<Button
+			<div style={{ display: 'flex', gap: '1rem', margin: '40px' }}>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', borderColor:"black", border: "0.5px",  boxShadow: '0 3px 6px rgba(0, 0, 0, 0.16)', padding: '10px', width: "auto" }}>
+					<h3>~News Flash~</h3>
+					{cardData.map((data, index) => (
+						<NewsCard key={index} index={index} title={data.title} description={data.description} style = {{width: '500px'}} />
+					))}
+				</div>
+				<div style={{display: 'flex', flexDirection: 'column', gap: '1rem', padding: '5', margin: '10', justifyContent: 'center', alignContent: 'center'}}>
+					<Button color="success" variant="contained" style={{width: "50%", marginLeft: "30%"}}>Direction: Up</Button>
+						{isFullscreen ? (
+						<FullscreenImageViewer src={selectedImg} onClose={toggleFullscreen} />
+						) : (
+						<img
+							src={selectedImg}
+							style={{ height: '60%', width: '75%', cursor: 'pointer', marginLeft: '15%' }}
+							onClick={toggleFullscreen}
+							alt="Selected"
+						/>
+						)}
+					<Button
+					color="secondary"
+					onClick={handleSubscribe}
+					disabled={isLoading}
+					style={{width: "20%", marginLeft: "43%"}}
+					>
+						{isLoading ? 'Subscribing...' : 'Subscribe!'}
+					</Button>
+				</div>
+			</div>
+			{/* <ExpandableCardList /> */}
+			{/* <Button
 			color="secondary"
 			onClick={handleSubscribe}
 			disabled={isLoading}
 			>
 				{isLoading ? 'Subscribing...' : 'Subscribe!'}
-			</Button>
+			</Button> */}
 			{/* <Button color="secondary" onClick={() => {console.log(curSubs)}}>Subscribe!</Button> */}
 		</div>
 	</div>

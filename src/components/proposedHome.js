@@ -10,6 +10,7 @@ import FutureEdge from '../assets/FutureEdge.png';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Stock from "./stock";
+import ExpandableCardList from "./FAQs";
 
 async function handleLogout() {
     try {
@@ -56,7 +57,7 @@ const Home = ({ userDetails }) =>{
                     </Typography> */}
                     <img src={FutureEdge} style={{height: '8%', width: '10%'}} />
                     <div style={{ display: 'flex', justifyContent: 'space-around', gap: 10}}>
-                        <button
+                        <Button
                             variant="outlined"
                             color="inherit"
                             onClick={handleMarketplaceClick}
@@ -64,15 +65,15 @@ const Home = ({ userDetails }) =>{
                             style={{ color: 'blue' }}
                         >
                             Marketplace
-                        </button>
-                        <button
+                        </Button>
+                        <Button
                             // variant="outlined"
                             color="inherit"
                             onClick={handleEducationClick}
                             className="text-button"
                         >
                             Education
-                        </button>
+                        </Button>
                     </div>
                     <div>
                     <Button
@@ -121,6 +122,7 @@ const Home = ({ userDetails }) =>{
                     {selectedContent === "future" && <div>Future</div>}
                     {selectedContent === "options" && <div>Options</div>}
                 </div>
+                <ExpandableCardList />
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <img
                     src={userDetails.photo}
