@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Stock from "./stock";
 import ExpandableCardList from "./FAQs";
 import Footer from "./Footer";
+import Future from "./Future";
 
 async function handleLogout() {
     try {
@@ -21,11 +22,7 @@ async function handleLogout() {
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
-  }
-//   const navigate = useNavigate();
-//   const toEducatoryForum = () => {
-//     navigate('/login');
-//   };
+}
 
 const Home = ({ userDetails }) =>{
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -42,6 +39,7 @@ const Home = ({ userDetails }) =>{
     };
     const handleMarketplaceClick = () => {
         // Define your marketplace click logic here
+        
         console.log("Marketplace button clicked");
       };
     

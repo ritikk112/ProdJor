@@ -106,7 +106,7 @@ const cardData = [
   };
 
 
-const Stock = ({ userDetails }) => {
+const Optins = ({ userDetails }) => {
 	const [selectedImg, setSelectedImg] = React.useState(Prototype1);
 	const [curSubs, setCurSubs] = React.useState("REL");
 	const [isLoading, setIsLoading] = React.useState(false);
@@ -287,4 +287,4 @@ function Item(props) {
   );
 }
 
-export default Stock;
+export default Options;

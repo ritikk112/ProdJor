@@ -16,6 +16,7 @@ import Profile from "./components/home";
 import { useState } from "react";
 import { auth } from "./components/firebase";
 import Home from "./components/proposedHome";
+import Education from './components/Education';
 
 function App() {
   const [user, setUser] = useState();
@@ -32,6 +33,7 @@ function App() {
       <div className= "App">
         <Routes>
           <Route path="/onboarding" element={<Profile />} />
+          <Route path="/education" element={<Education />} />
         </Routes>
         <div className="auth-wrapper">
           <div className=  "auth-inner">
@@ -40,6 +42,7 @@ function App() {
                 path="/"
                 element={user ? <Navigate to="/onboarding"  /> : <Login />} 
               />
+              {/* <Route path="/education" element={<Education />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<SignUp />} />
             </Routes>
